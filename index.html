@@ -23,7 +23,8 @@
             align-items: center;
             justify-content: center;
             padding: 60px 20px;
-            background: url('bg.png') no-repeat center center/cover;
+            /* UPDATED background image URL */
+            background: url('https://raw.githubusercontent.com/cekeith999/exo-html/main/bg.png') no-repeat center center/cover;
             height: 100vh; /* Full viewport height */
             position: relative;
         }
@@ -31,6 +32,10 @@
             flex: 1;
             padding-right: 40px;
             z-index: 1;
+            /* Added a subtle background/opacity for better text readability if needed */
+            /* background-color: rgba(253, 252, 251, 0.7); */
+            /* padding: 20px; */
+            /* border-radius: 8px; */
         }
         .hero h1 {
             font-size: 3rem; /* Slightly smaller heading */
@@ -85,16 +90,27 @@
             padding: 60px 20px;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Add gap between items */
         }
         .feature-item {
             flex: 1;
+            min-width: 250px; /* Minimum width before wrapping */
             max-width: 300px;
             padding: 0 15px;
         }
-        .feature-item .icon { /* Placeholder for icon */
-            font-size: 2.5rem;
+        .feature-item .icon {
             margin-bottom: 15px;
-            color: #555;
+            height: 100px; /* Give icon div a fixed height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .feature-item .icon img {
+             max-width: 100px; /* Control icon size */
+             max-height: 100px;
+             height: auto;
+             width: auto;
         }
         .feature-item h3 {
             font-size: 1.4rem;
@@ -120,33 +136,43 @@
         }
         .benefit-block {
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
             align-items: center;
             margin-bottom: 80px;
             gap: 40px; /* Spacing between text and image */
         }
-        .benefit-block:nth-child(odd) .benefit-text { /* Text on left for odd blocks */
+        /* Order logic might need adjustment if wrapping occurs */
+        .benefit-block:nth-child(odd) .benefit-text {
              order: 1;
         }
-         .benefit-block:nth-child(odd) .benefit-image { /* Image on right for odd blocks */
+         .benefit-block:nth-child(odd) .benefit-image {
              order: 2;
          }
-        .benefit-block:nth-child(even) .benefit-text { /* Text on right for even blocks */
+        .benefit-block:nth-child(even) .benefit-text {
             order: 2;
-             text-align: left; /* Default is left, ensure it stays left */
+             text-align: left;
         }
-        .benefit-block:nth-child(even) .benefit-image { /* Image on left for even blocks */
+        .benefit-block:nth-child(even) .benefit-image {
             order: 1;
         }
 
         .benefit-text {
             flex: 1;
+            min-width: 300px; /* Ensure text block has min width */
         }
-        .benefit-text .icon { /* Placeholder for icon */
-             font-size: 2rem;
+        .benefit-text .icon {
              margin-bottom: 10px;
-             display: block;
-             color: #555;
+             height: 100px; /* Fixed height */
+             display: flex;
+             align-items: center;
+             /* justify-content: center; /* Usually icons align left */
         }
+         .benefit-text .icon img {
+             max-width: 100px;
+             max-height: 100px;
+             width: auto;
+             height: auto;
+         }
         .benefit-text h3 {
             font-size: 1.8rem;
             font-weight: 600;
@@ -160,20 +186,22 @@
         }
         .benefit-image {
             flex: 1;
-            text-align: center; /* Center image within its flex container */
+            min-width: 300px; /* Ensure image block has min width */
+            text-align: center;
         }
         .benefit-image img {
-            max-width: 80%; /* Control image size */
-            height: auto;
-            border-radius: 8px; /* Slightly rounded corners for images */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow */
+            max-width: 100%; /* Allow image to scale down */
+            width: auto; /* Maintain aspect ratio */
+            max-height: 350px; /* Control max image height */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         /* Partnership Section */
         .partnerships {
             text-align: center;
-            padding: 40px 20px 60px; /* Less top padding */
-            background-color: #f8f6f4; /* Match hero background */
+            padding: 40px 20px 60px;
+            background-color: #f8f6f4;
         }
         .partnerships p {
             font-size: 0.9rem;
@@ -184,11 +212,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap; /* Allow logos to wrap on smaller screens */
-            gap: 40px; /* Space between logos */
+            flex-wrap: wrap;
+            gap: 40px;
         }
         .partner-logos img {
-            max-height: 35px; /* Control logo height */
+            max-height: 35px;
             width: auto;
             filter: grayscale(100%);
             opacity: 0.7;
@@ -197,12 +225,14 @@
         /* Bottom Section (Testimonial + Form) */
         .bottom-section {
             display: flex;
+            flex-wrap: wrap; /* Allow wrapping */
             padding: 80px 20px;
-            gap: 60px; /* Space between testimonial and form */
+            gap: 60px;
             align-items: flex-start;
         }
         .testimonial {
             flex: 1;
+            min-width: 300px; /* Min width */
         }
          .testimonial h3 {
              font-size: 1.8rem;
@@ -226,6 +256,7 @@
         }
         .form-container {
             flex: 1;
+            min-width: 300px; /* Min width */
             background-color: #fff;
             padding: 30px;
             border: 1px solid #eee;
@@ -283,18 +314,60 @@
         .text-center {
             text-align: center;
         }
+
+        /* Basic Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                justify-content: center;
+                height: auto; /* Adjust height on smaller screens */
+                padding-top: 100px; /* Add padding if needed */
+                padding-bottom: 100px;
+            }
+             .hero-text {
+                 padding-right: 0;
+                 text-align: center;
+             }
+             .hero h1 {
+                 font-size: 2.5rem;
+                 text-align: center;
+                 max-width: 100%;
+             }
+             .hero p {
+                 max-width: 100%;
+             }
+             .benefit-block {
+                 flex-direction: column; /* Stack text/image vertically */
+             }
+             .benefit-block:nth-child(odd) .benefit-text,
+             .benefit-block:nth-child(even) .benefit-text,
+             .benefit-block:nth-child(odd) .benefit-image,
+             .benefit-block:nth-child(even) .benefit-image {
+                 order: 0; /* Reset order */
+                 text-align: center; /* Center text */
+             }
+             .benefit-text .icon {
+                 justify-content: center; /* Center icons */
+             }
+              .bottom-section {
+                 flex-direction: column;
+                 gap: 40px;
+             }
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container" style="display: flex; align-items: center;">
+        <div class="container" style="display: flex; align-items: center; justify-content: center;">
             <div class="hero-text">
                 <h1>The Soft Exoskeleton that Restores Natural Mobility</h1>
                 <p>Ocelot is a discreet wearable that enhances movement through predictive AI and innovative hardware</p>
                 <a href="#form" class="cta-button">Reserve my Spot</a>
             </div>
+            <!-- Removed the explicit image div as background is handled by CSS -->
         </div>
     </section>
 
@@ -302,21 +375,24 @@
     <section class="features container">
         <div class="feature-item">
             <div class="icon">
-                <img src="discreet.png" alt="Icon representing wearable design" width="100" height="100">
+                <!-- UPDATED -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/discreet.png" alt="Icon representing wearable design">
             </div>
             <h3>Discreet Wearable Design</h3>
             <p>Minimalist device -- no bulk, no noise. Replicating natural movement</p>
         </div>
         <div class="feature-item">
             <div class="icon">
-                <img src="AI.png" alt="Icon representing wearable design" width="100" height="100">
+                <!-- UPDATED -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/AI.png" alt="Icon representing adaptive AI">
             </div>
             <h3>Real-Time Adaptive AI</h3>
             <p>Predictive AI and BCI understands how you move.</p>
         </div>
         <div class="feature-item">
             <div class="icon">
-                <img src="arm2.png" alt="Icon representing wearable design" width="100" height="100">
+                <!-- UPDATED -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/arm2.png" alt="Icon representing strength">
             </div>
             <h3>Strength Without Strain</h3>
             <p>Strength and mobility assistance to restore human autonomy</p>
@@ -330,24 +406,29 @@
         <div class="benefit-block">
             <div class="benefit-text">
                 <div class="icon">
-                    <img src="leg.png" alt="Icon representing mobility" width="100" height="100">
+                    <!-- UPDATED -->
+                    <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/leg.png" alt="Icon representing mobility">
                 </div>
                 <h3>Enhanced Mobility</h3>
                 <p>Experience improved walking, standing, and bending with natural, fluid movement.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
             </div>
             <div class="benefit-image">
-                <img src="Screenshot 2025-04-01 at 11.43.10 AM.png" alt="Close up of exoskeleton on legs">
+                <!-- UPDATED (with URL encoding) -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/Screenshot%202025-04-01%20at%2011.43.10%E2%80%AFAM.png" alt="Close up of exoskeleton on legs">
             </div>
         </div>
 
         <div class="benefit-block">
             <div class="benefit-image">
-                <img src="Screenshot 2025-04-01 at 11.42.59 AM.png" alt="Close up of power button">
+                 <!-- UPDATED (with URL encoding) -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/Screenshot%202025-04-01%20at%2011.42.59%E2%80%AFAM.png" alt="Close up of power button">
             </div>
             <div class="benefit-text">
-           
-                <img src="brain.png" alt="Icon representing mobility" width="100" height="100">
+                <div class="icon"> <!-- Moved icon inside benefit-text div -->
+                    <!-- UPDATED -->
+                    <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/brain.png" alt="Icon representing intelligent assistance">
+                </div>
                 <h3>Intelligent Assistance</h3>
                 <p>Intuitive AI-powered support adjusts dynamically to your activity.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
@@ -356,13 +437,17 @@
 
         <div class="benefit-block">
             <div class="benefit-text">
-                <img src="arm.png" alt="Icon representing mobility" width="100" height="100">
+                 <div class="icon"> <!-- Moved icon inside benefit-text div -->
+                     <!-- UPDATED -->
+                    <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/arm.png" alt="Icon representing effortless strength">
+                </div>
                 <h3>Effortless Strength</h3>
                 <p>Gain additional support for your muscles and joints during everyday tasks.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
             </div>
             <div class="benefit-image">
-                <img src="Screenshot 2025-04-01 at 11.42.45 AM.png" alt="Close up of exoskeleton material">
+                 <!-- UPDATED (with URL encoding) -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/Screenshot%202025-04-01%20at%2011.42.45%E2%80%AFAM.png" alt="Close up of exoskeleton material">
             </div>
         </div>
     </section>
@@ -372,11 +457,12 @@
         <div class="container">
             <p>In Partnership with...</p>
             <div class="partner-logos">
-                <img src="nyp_s_pos_red_rgb_122716-1024x450.webp" alt="NewYork Presbyterian Logo">
-                <img src="dh_horz_blue_0_1.png" alt="Duke Logo">
-                <img src="Cedars_Sinai_Medical_Center_logo.svg.png" alt="Cedars-Sinai Logo">
-                <img src="vs3_bl_a_ucsf_health@2x.png" alt="UCSF Health Logo">
-                <img src="Cleveland_Clinic_logo.svg.png" alt="Cleveland Clinic Logo">
+                <!-- UPDATED - Ensure these files exist in GitHub! -->
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/nyp_s_pos_red_rgb_122716-1024x450.webp" alt="NewYork Presbyterian Logo">
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/dh_horz_blue_0_1.png" alt="Duke Logo">
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/Cedars_Sinai_Medical_Center_logo.svg.png" alt="Cedars-Sinai Logo">
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/vs3_bl_a_ucsf_health@2x.png" alt="UCSF Health Logo">
+                <img src="https://raw.githubusercontent.com/cekeith999/exo-html/main/Cleveland_Clinic_logo.svg.png" alt="Cleveland Clinic Logo">
             </div>
             <p style="margin-top: 20px; font-size: 0.9rem; color: #777;">And more</p>
         </div>
