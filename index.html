@@ -21,35 +21,31 @@
         .hero {
             display: flex;
             align-items: center;
+            justify-content: center;
             padding: 60px 20px;
-            background-color: #f8f6f4; /* Slightly different shade if needed */
-            min-height: 400px; /* Adjust as needed */
+            background: url('bg.png') no-repeat center center/cover;
+            height: 100vh; /* Full viewport height */
+            position: relative;
         }
         .hero-text {
             flex: 1;
             padding-right: 40px;
+            z-index: 1;
         }
         .hero h1 {
-            font-size: 3.5rem; /* Large heading */
+            font-size: 3rem; /* Slightly smaller heading */
             font-weight: 700;
             line-height: 1.2;
             margin-bottom: 20px;
             color: #1a1a1a; /* Darker text */
+            max-width: 700px; /* Shorten the width */
+            text-align: left; /* Align text to the left */
         }
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 30px;
+            max-width: 550px;
             color: #555;
-        }
-        .hero-image {
-            flex: 1;
-            text-align: right; /* Align image to the right */
-        }
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 500px; /* Control image height */
-            object-fit: contain;
         }
         .cta-button {
             display: inline-block;
@@ -148,7 +144,7 @@
         .benefit-text .icon { /* Placeholder for icon */
              font-size: 2rem;
              margin-bottom: 10px;
-             display: block; /* Or inline-block */
+             display: block;
              color: #555;
         }
         .benefit-text h3 {
@@ -194,7 +190,7 @@
         .partner-logos img {
             max-height: 35px; /* Control logo height */
             width: auto;
-            filter: grayscale(100%); /* Make logos grayscale */
+            filter: grayscale(100%);
             opacity: 0.7;
         }
 
@@ -203,7 +199,7 @@
             display: flex;
             padding: 80px 20px;
             gap: 60px; /* Space between testimonial and form */
-            align-items: flex-start; /* Align items to the top */
+            align-items: flex-start;
         }
         .testimonial {
             flex: 1;
@@ -247,7 +243,7 @@
         .form-group {
             margin-bottom: 15px;
         }
-        .form-group label { /* Optional: Can be hidden if using placeholders */
+        .form-group label {
             display: block;
             margin-bottom: 5px;
             font-size: 0.9rem;
@@ -256,15 +252,14 @@
         }
         .form-group input[type="text"],
         .form-group input[type="email"],
-        .form-group select { /* Added select for state example */
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Include padding in width */
+            box-sizing: border-box;
             font-size: 1rem;
         }
-        /* Style placeholders */
         .form-group input::placeholder {
             color: #aaa;
             font-size: 0.95rem;
@@ -272,7 +267,7 @@
         .form-container button[type="submit"] {
              width: 100%;
              padding: 12px 25px;
-             background-color: #1f2937; /* Darker button */
+             background-color: #1f2937;
              color: #fff;
              border: none;
              border-radius: 4px;
@@ -280,17 +275,14 @@
              font-weight: 500;
              cursor: pointer;
              transition: background-color 0.3s ease;
-             margin-top: 10px; /* Space above button */
+             margin-top: 10px;
         }
         .form-container button[type="submit"]:hover {
             background-color: #374151;
         }
-
-        /* Utility */
         .text-center {
             text-align: center;
         }
-
     </style>
 </head>
 <body>
@@ -303,27 +295,29 @@
                 <p>Ocelot is a discreet wearable that enhances movement through predictive AI and innovative hardware</p>
                 <a href="#form" class="cta-button">Reserve my Spot</a>
             </div>
-            <div class="hero-image">
-                <!-- IMAGE 1 -->
-                <img src="https://drive.google.com/uc?id=1hFn4GTSIlRzf7qV9za-gSFtbqii6iCGC" alt="Man wearing Ocelot Exoskeleton">
-            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features container">
         <div class="feature-item">
-            <div class="icon">[ICON: Wearable]</div>
+            <div class="icon">
+                <img src="discreet.png" alt="Icon representing wearable design" width="100" height="100">
+            </div>
             <h3>Discreet Wearable Design</h3>
             <p>Minimalist device -- no bulk, no noise. Replicating natural movement</p>
         </div>
         <div class="feature-item">
-            <div class="icon">[ICON: AI Brain]</div>
+            <div class="icon">
+                <img src="AI.png" alt="Icon representing wearable design" width="100" height="100">
+            </div>
             <h3>Real-Time Adaptive AI</h3>
             <p>Predictive AI and BCI understands how you move.</p>
         </div>
         <div class="feature-item">
-            <div class="icon">[ICON: Muscle]</div>
+            <div class="icon">
+                <img src="arm2.png" alt="Icon representing wearable design" width="100" height="100">
+            </div>
             <h3>Strength Without Strain</h3>
             <p>Strength and mobility assistance to restore human autonomy</p>
         </div>
@@ -335,24 +329,25 @@
 
         <div class="benefit-block">
             <div class="benefit-text">
-                <div class="icon">[ICON: Legs]</div>
+                <div class="icon">
+                    <img src="leg.png" alt="Icon representing mobility" width="100" height="100">
+                </div>
                 <h3>Enhanced Mobility</h3>
                 <p>Experience improved walking, standing, and bending with natural, fluid movement.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
             </div>
             <div class="benefit-image">
-                <!-- IMAGE 2 -->
-                <img src="https://drive.google.com/uc?id=1Ir_yleu02dk1ITZsRyA0FwTkPJlFXWVF" alt="Close up of exoskeleton on legs">
+                <img src="Screenshot 2025-04-01 at 11.43.10 AM.png" alt="Close up of exoskeleton on legs">
             </div>
         </div>
 
         <div class="benefit-block">
-             <div class="benefit-image">
-                <!-- IMAGE 3 -->
-                <img src="https://drive.google.com/uc?id=18uDyjhmHRiMkDxulwmqtJ3Y_f_LysqWr" alt="Close up of power button">
+            <div class="benefit-image">
+                <img src="Screenshot 2025-04-01 at 11.42.59 AM.png" alt="Close up of power button">
             </div>
             <div class="benefit-text">
-                 <div class="icon">[ICON: Brain Circuit]</div>
+           
+                <img src="brain.png" alt="Icon representing mobility" width="100" height="100">
                 <h3>Intelligent Assistance</h3>
                 <p>Intuitive AI-powered support adjusts dynamically to your activity.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
@@ -361,14 +356,13 @@
 
         <div class="benefit-block">
             <div class="benefit-text">
-                 <div class="icon">[ICON: Arm Flex]</div>
+                <img src="arm.png" alt="Icon representing mobility" width="100" height="100">
                 <h3>Effortless Strength</h3>
                 <p>Gain additional support for your muscles and joints during everyday tasks.</p>
                 <a href="#form" class="cta-button-outline">BUTTON CTA</a>
             </div>
             <div class="benefit-image">
-                <!-- IMAGE 4 -->
-                <img src="https://drive.google.com/uc?id=1VijTc39XUFZ2MkIyNDIZoWo84YFoDuZT" alt="Close up of exoskeleton material">
+                <img src="Screenshot 2025-04-01 at 11.42.45 AM.png" alt="Close up of exoskeleton material">
             </div>
         </div>
     </section>
@@ -378,14 +372,13 @@
         <div class="container">
             <p>In Partnership with...</p>
             <div class="partner-logos">
-                <img src="https://via.placeholder.com/150x35.png?text=NewYork+Presbyterian" alt="NewYork Presbyterian Logo">
-                <img src="https://via.placeholder.com/100x35.png?text=Duke" alt="Duke Logo">
-                <img src="https://via.placeholder.com/120x35.png?text=CEDARS-SINAI" alt="Cedars-Sinai Logo">
-                <img src="https://via.placeholder.com/120x35.png?text=UCSF+Health" alt="UCSF Health Logo">
-                <img src="https://via.placeholder.com/150x35.png?text=Cleveland+Clinic" alt="Cleveland Clinic Logo">
-                <!-- Add "And more" text if desired -->
+                <img src="nyp_s_pos_red_rgb_122716-1024x450.webp" alt="NewYork Presbyterian Logo">
+                <img src="dh_horz_blue_0_1.png" alt="Duke Logo">
+                <img src="Cedars_Sinai_Medical_Center_logo.svg.png" alt="Cedars-Sinai Logo">
+                <img src="vs3_bl_a_ucsf_health@2x.png" alt="UCSF Health Logo">
+                <img src="Cleveland_Clinic_logo.svg.png" alt="Cleveland Clinic Logo">
             </div>
-             <p style="margin-top: 20px; font-size: 0.9rem; color: #777;">And more</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #777;">And more</p>
         </div>
     </section>
 
@@ -398,31 +391,19 @@
         </div>
         <div class="form-container">
             <h3>Get started today</h3>
-            <form action="#" method="POST"> <!-- Replace # with your form handler URL -->
+            <form action="#" method="POST">
                 <div class="form-group">
-                    <!-- <label for="first-name">First Name</label> -->
                     <input type="text" id="first-name" name="first_name" placeholder="First Name" required>
                 </div>
                 <div class="form-group">
-                    <!-- <label for="email">Email Address</label> -->
                     <input type="email" id="email" name="email" placeholder="Email Address" required>
                 </div>
                 <div class="form-group">
-                    <!-- <label for="state">State</label> -->
                     <input type="text" id="state" name="state" placeholder="State">
-                     <!-- Or use a dropdown:
-                     <select id="state" name="state">
-                         <option value="" disabled selected>State</option>
-                         <option value="CA">California</option>
-                         <option value="NY">New York</option>
-                         {... other states ...}
-                     </select> -->
                 </div>
-                 <div class="form-group">
-                    <!-- <label for="premium_range">Premium Range</label> -->
+                <div class="form-group">
                     <input type="text" id="premium_range" name="premium_range" placeholder="Premium Range">
-                    <!-- This could be a select or other input type depending on what "Premium Range" means -->
-                 </div>
+                </div>
                 <button type="submit" class="cta-button" style="width: 100%; border-radius: 4px;">Reserve My Spot</button>
             </form>
         </div>
